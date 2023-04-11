@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node index.js",
+    "build":"npm i"
   },
   "keywords": [],
   "author": "",
@@ -17,5 +18,8 @@
     "jsonwebtoken": "^9.0.0",
     "mongoose": "^7.0.2"
   },
-  "type": "module"
+  "type": "module",
+   "engines": {
+    "node": "16.13.0"
+    }
 }
