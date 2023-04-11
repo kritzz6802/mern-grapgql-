@@ -1,0 +1,243 @@
+query{
+  quotes{
+    name
+    by
+  }
+
+  users{
+    id
+    fname
+    lname
+    email
+    password
+  }
+
+    user(id:"1"){
+    fname
+    lname
+  }
+
+   iquotes(by:"1"){
+    name
+    by
+  }
+}
+
+
+query UserPostID($id: ID!) {
+  user(id: $id) {
+    id
+
+  }
+}
+{
+    "id": "1"
+}
+
+// mutation
+
+
+mutation createuser{
+  Newuser:signupUserDummy(userNew: {
+    fname: "papa",
+    lname: "koyani",
+    email: "papa@gmail.com",
+    password: "12345"
+  }) {
+    id
+    fname
+    lname
+    email
+    password
+  }
+}
+
+
+
+
+# Write your query or mutation here
+query{
+  quotes{
+    name
+    by{
+      fname
+    }
+  }
+
+  users{
+    _id
+    fname
+    lname
+    email
+    password
+   quotes{
+    name
+    by{
+      _id
+      fname
+    }
+  }
+  }
+
+  user(_id:"641bf6ca049cac0032cb698f"){
+    _id
+    fname
+    lname
+
+  }
+
+
+}
+
+# Write your query or mutation here
+query{
+  quotes{
+    name
+    by{
+      fname
+    }
+  }
+
+}
+
+
+mutation createuser{
+  signupUser:signupUser(userNew: {
+    fname: "prince",
+    lname: "koyani",
+    email: "princekkoyani@gmail.com",
+    password: "12345"
+  }) {
+    _id
+    fname
+    lname
+    email
+    password
+  }
+}
+
+# Write your query or mutation here
+query{
+
+
+  users{
+    _id
+    fname
+    lname
+    email
+    password
+     quotes{
+    name
+    by{
+      fname
+    }
+  }
+  }
+
+}
+
+
+mutation createuser{
+  signinUser:signinUser(userSignin: {
+    email: "princekkoyani@gmail.com",
+    password: "12345"
+  }) {
+    token
+  }
+}
+
+
+
+mutation createquote{
+  createQuote(name: "be cool buddy")
+}
+
+//12:19-11
+query getProfile{
+  myprofile{
+    fname
+    lname
+    email
+     quotes{
+    name
+  }
+  }
+
+}
+
+//createProduct
+mutation CreateProduct($addproduct: product!) {
+  createProduct(addproduct: $addproduct) {
+    name
+    price
+    discription
+    url
+      by{
+        _id
+         fname
+        }
+  }
+}
+
+// home page
+query
+    {
+    products{
+        name
+      price
+      discription
+      url
+        by{
+        _id
+         fname
+        }
+     }
+ }
+
+ //login
+     mutation createuser($user:UserSigninInput!){
+                signinUser(userSignin:$user) {
+                    token
+                  }
+                }
+
+// other user getProfile
+        query getUser($userId: ID!) {
+          user(_id: $userId) {
+            _id
+            fname
+            lname
+            email
+            products {
+                name
+                price
+                discription
+                url
+            }
+          }
+        }
+
+//getProfile
+query getProfile{
+  user:myprofile{
+    fname
+    lname
+    email
+     products{
+    name
+          price
+      discription
+      url
+  }
+  }
+}
+
+//sign UserPostID
+
+          mutation($user: UserInput!) {
+            signupUser(userNew: $user) {
+              fname
+              lname
+              email
+            }
+          }
