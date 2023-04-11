@@ -7,7 +7,7 @@ import {BrowserRouter} from 'react-router-dom'
 import { ApolloClient, InMemoryCache, ApolloProvider } from '@apollo/client';
 
 const client = new ApolloClient({
-  uri: 'https://mevn-product-selling.onrender.com/',
+  uri: 'https://mern-product-selling-app.onrender.com/',
   cache: new InMemoryCache(),
   headers:{
     authorization:localStorage.getItem('token') || ''
